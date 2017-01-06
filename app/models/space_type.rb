@@ -1,0 +1,7 @@
+class SpaceType < ApplicationRecord
+  has_many :space_type_associations
+
+  has_many :spaces,
+    through: :space_type_associations,
+    source: :spaces
+end
