@@ -4,13 +4,13 @@ class Space < ApplicationRecord
   validates :owner_id,
     presence: true
 
-  validate :owner_exists?, on: save
+  validate :user_exists?, on: save
 
   validates :name,
     presence: true,
     length: { in: 1..20 }
 
-  def owner_exists?
+  def user_exists?
     User.find(owner_id) ? true : false
   end
 
