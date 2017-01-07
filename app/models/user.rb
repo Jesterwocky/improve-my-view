@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  
+  # Handles validation of password (and password confirmation)
+  # if you choose to use it)
   has_secure_password
 
   # validations-------------------------------------
@@ -8,9 +9,8 @@ class User < ApplicationRecord
     length: { in: 1..20, allow_nil: true }
 
   validates :email,
-    email: true,
     presence: true,
-    uniqueness: true,
+    uniqueness: true
 
   # associations-------------------------------------
   has_many :ownerships,
