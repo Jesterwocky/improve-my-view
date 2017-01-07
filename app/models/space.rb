@@ -4,7 +4,7 @@ class Space < ApplicationRecord
   validates :owner_id,
     presence: true
 
-  validate :user_exists?, on: save
+  validate :user_exists?
 
   validates :name,
     presence: true,

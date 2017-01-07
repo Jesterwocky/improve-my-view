@@ -4,9 +4,9 @@ class Improvement < ApplicationRecord
   validates :space_view_id, :author_id,
     presence: true
 
-  validate :space_view_exists?, on: save
+  validate :space_view_exists?
 
-  validate :user_exists?, on: save
+  validate :user_exists?
 
   validates :description,
     presence: true,

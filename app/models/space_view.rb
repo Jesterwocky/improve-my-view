@@ -4,9 +4,9 @@ class SpaceView < ApplicationRecord
   validates :space_id, :owner_id, :image,
     presence: true
 
-  validate :space_exists?, on: save
+  validate :space_exists?
 
-  validate :user_exists?, on: save
+  validate :user_exists?
 
   def space_exists?
     Space.find(space_id) ? true : false

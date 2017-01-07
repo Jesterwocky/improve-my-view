@@ -4,11 +4,11 @@ class Ownership < ApplicationRecord
   validates :space_id, :owner_id, :ownership_type_id,
     presence: true
 
-  validate :space_view_exists?, on: save
+  validate :space_view_exists?
 
-  validate :user_exists?, on: save
+  validate :user_exists?
 
-  validate :ownership_type_exists?, on: save
+  validate :ownership_type_exists?
 
   def space_exists?
     Space.find(space_id) ? true : false
