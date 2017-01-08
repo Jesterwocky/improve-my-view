@@ -3,10 +3,12 @@ class User < ApplicationRecord
   # if you choose to use it)
   has_secure_password
 
+  before_save :ensure_name
+
   # validations-------------------------------------
-  validates :name,
+  validates :name, on: :save,
     presence: true,
-    length: { in: 1..20, allow_nil: true }
+    length: { in: 1..20 }
 
   validates :email,
     presence: true,
@@ -33,4 +35,9 @@ class User < ApplicationRecord
   has_many :contributor_spaces,
     through: :improvements,
     source: :space
+
+  private
+  def ensure_name
+    self.name = self.email[0..20] if self.name.nil?
+  end
 end
