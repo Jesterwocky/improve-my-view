@@ -1,24 +1,12 @@
 class Improvement < ApplicationRecord
 
   # validations-------------------------------------
-  validates :space_view_id, :author_id,
+  validates :space_view, :author,
     presence: true
-
-  validate :space_view_exists?
-
-  validate :user_exists?
 
   validates :description,
     presence: true,
     length: { minimum: 1 }
-
-  def space_view_exists?
-    SpaceView.find(space_view_id) ? true : false
-  end
-
-  def user_exists?
-    User.find(author_id) ? true : false
-  end
 
   # associations-------------------------------------
   belongs_to :space_view

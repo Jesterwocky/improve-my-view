@@ -8,7 +8,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "when user is created" do
+  describe "when a user is created" do
     it "is invalid without an email address" do
       expect(FactoryGirl.build(:user, email: nil)).to_not be_valid
     end

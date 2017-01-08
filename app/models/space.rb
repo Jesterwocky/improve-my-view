@@ -1,18 +1,12 @@
 class Space < ApplicationRecord
 
   # validations-------------------------------------
-  validates :owner_id,
+  validates :owner,
     presence: true
-
-  validate :user_exists?
 
   validates :name,
     presence: true,
     length: { in: 1..20 }
-
-  def user_exists?
-    User.find(owner_id) ? true : false
-  end
 
   # associations-------------------------------------
   belongs_to :owner,

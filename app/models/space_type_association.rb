@@ -1,5 +1,8 @@
 class SpaceTypeAssociation < ApplicationRecord
-  belongs_to :spaces
+  validates :space, :space_type,
+    presence: true
 
-  belongs_to :types
+  belongs_to :space
+
+  belongs_to :space_type
 end
