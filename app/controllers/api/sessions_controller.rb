@@ -1,6 +1,4 @@
 class SessionsController < ApplicationController
-  # Why no need for strong params? Because we're
-  # not saving anything to the DB
 
   def create
     user = User.find_by_email(params[:email])
